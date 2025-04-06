@@ -1,77 +1,155 @@
-# Fishing Assistant Application
 
-A comprehensive web application designed to assist fishermen in Tamil Nadu with weather information, fishing predictions, route optimization, safety alerts, and community reporting.
 
-![Fishing Assistant Dashboard](https://placeholder.pics/svg/800x400/DEDEDE/555555/Fishing%20Assistant%20Dashboard)
+1. Install dependencies:
 
-## Overview
+```
+npm install
+ or
+yarn install
+```
 
-Fishing Assistant is a Next.js application that provides fishermen with real-time marine data, fishing predictions, route optimization, territorial compliance alerts, and a community reporting system. The application aims to improve fishing efficiency, reduce fuel consumption, enhance safety, and promote sustainable fishing practices.
 
-## Features
+2. Set up environment variables (see below)
+3. Run the development server:
 
-### Marine Weather Data
-- Real-time weather conditions including temperature, wind speed, wave height
-- Tide information and forecasts
-- Visibility and pressure data
-- UV index and current information
+```
+npm run dev
+ or
+yarn dev
+```
 
-### Fishing Predictions
-- AI-powered fishing spot recommendations
-- Species-specific predictions
-- Best time of day for fishing
-- Probability ratings for different locations
 
-### Interactive Map
-- Fishing zones and recommended spots
-- Restricted and overfished areas
-- Territorial boundary alerts
-- Community-reported hazards and conditions
-- Custom location marking
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-### Route Optimization
-- Fuel-efficient route planning
-- Time and distance calculations
-- Customizable boat parameters (speed, fuel consumption)
-- Multiple waypoints navigation
-- Harbor-to-fishing spot routing
 
-### Safety Alerts
-- Weather warnings and alerts
-- Territorial boundary notifications
-- Naval exercise and restricted zone warnings
-- Community-reported hazards
+## Environment Variables
 
-### Activity Reporting
-- Report overfished areas
-- Mark dangerous conditions
-- Request emergency assistance
-- View community reports history
+Create a `.env.local` file in the root directory with the following variables:
 
-### Offline Support
-- Basic functionality without internet connection
-- Cached map data
-- Stored critical alerts
+```
+OPENWEATHER_API_KEY=your_openweather_api_key
+NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your_google_maps_api_key
+STORMGLASS_API_KEY=your_stormglass_api_key
+```
 
-## Technologies Used
+### Required API Keys:
 
-- **Frontend**: Next.js, React, TypeScript, Tailwind CSS
-- **UI Components**: shadcn/ui
-- **Maps**: Google Maps API
-- **Weather Data**: OpenWeather API, StormGlass API
-- **State Management**: React Hooks
-- **Styling**: Tailwind CSS, Lucide React icons
+1. **OpenWeather API**: For basic weather data. Get a key at [OpenWeather](https://openweathermap.org/api)
+2. **Google Maps API**: For map functionality. Get a key at [Google Cloud Platform](https://console.cloud.google.com/)
+3. **StormGlass API**: For marine data. Get a key at [StormGlass](https://stormglass.io/)
 
-## Prerequisites
 
-Before you begin, ensure you have:
-- Node.js 18.x or higher
-- npm or yarn
-- Required API keys (see Environment Variables section)
+## Usage
 
-## Installation
+### Dashboard
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/haziq-syeed-code/fishing-assistant.git
-   cd fishing-assistant
+The main dashboard provides an overview of current marine conditions, fishing predictions, and a map with fishing spots.
+
+### Map View
+
+The full-screen map allows you to:
+
+- View recommended fishing spots
+- See restricted and overfished areas
+- Get territorial compliance alerts
+- Report overfished areas or unsafe conditions
+- Save favorite fishing locations
+
+
+### Route Optimizer
+
+Plan the most fuel-efficient route to your fishing destination:
+
+1. Select your starting point (current location, harbor, or custom coordinates)
+2. Choose your destination
+3. Adjust your boat's speed and fuel consumption
+4. Calculate the optimal route with time and fuel estimates
+
+
+### Report Activity
+
+Report fishing conditions or request assistance:
+
+1. Choose the type of report (overfished area, dangerous conditions, etc.)
+2. Provide a description
+3. Set the urgency level
+4. Submit to alert other fishermen
+
+
+### Alerts
+
+View important notifications about:
+
+- Weather conditions
+- Naval exercises
+- Fishing festivals
+- Government announcements
+
+
+## Project Structure
+
+```
+fishing-assistant/
+├── app/                  # Next.js app router
+│   ├── api/              # API routes
+│   ├── alerts/           # Alerts page
+│   ├── map/              # Map page
+│   ├── report/           # Report activity page
+│   ├── route-optimizer/  # Route optimizer page
+│   ├── settings/         # Settings page
+│   ├── layout.tsx        # Root layout
+│   └── page.tsx          # Home page
+├── components/           # React components
+│   ├── ui/               # UI components (shadcn)
+│   ├── alerts.tsx
+│   ├── dashboard.tsx
+│   ├── enhanced-fishing-predictions.tsx
+│   ├── enhanced-map.tsx
+│   ├── enhanced-weather.tsx
+│   ├── fishing-map.tsx
+│   ├── fishing-predictions.tsx
+│   ├── improved-route-optimizer.tsx
+│   ├── map-fullscreen.tsx
+│   ├── report-activity.tsx
+│   ├── route-optimizer.tsx
+│   └── weather.tsx
+├── lib/                  # Utility functions
+│   └── marine-data-service.ts
+├── public/               # Static assets
+├── .env.local            # Environment variables (create this)
+├── next.config.js
+├── package.json
+├── README.md
+└── tsconfig.json
+```
+
+## Deployment
+
+The application can be deployed to Vercel:
+
+1. Push your code to a GitHub repository
+2. Import the project in Vercel
+3. Configure the environment variables
+4. Deploy
+
+
+## Future Enhancements
+
+- User authentication and profiles
+- Catch reporting and statistics
+- Advanced weather radar overlays
+- Offline maps and navigation
+- Community forums and fishing tips
+- Multi-language support (Tamil, Telugu)
+- Mobile app versions (iOS, Android)
+
+
+
+## Acknowledgements
+
+- [Next.js](https://nextjs.org/)
+- [shadcn/ui](https://ui.shadcn.com/)
+- [Google Maps API](https://developers.google.com/maps)
+- [OpenWeather API](https://openweathermap.org/api)
+- [StormGlass API](https://stormglass.io/)
+- [Lucide Icons](https://lucide.dev/)
